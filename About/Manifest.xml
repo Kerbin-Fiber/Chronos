@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Manifest>
+  <identifier>Chronos</identifier>
+  <version>1.0.2</version>
+  <dependencies>
+    <li>2009463077</li> <!--Harmony-->
+  </dependencies>
+  <incompatibleWith>
+  </incompatibleWith>
+  <loadBefore></loadBefore>
+  <loadAfter>
+    <li>2009463077</li>
+  </loadAfter>
+  <suggests>
+  </suggests>
+  <showCrossPromotions>false</showCrossPromotions>
+  <manifestUri>https://github.com/Kerbin-Fiber/Chronos/About/Manifest.xml</manifestUri>
+  <downloadUri>https://github.com/Kerbin-Fiber/Chronos/releases/latest</downloadUri>
+</Manifest>

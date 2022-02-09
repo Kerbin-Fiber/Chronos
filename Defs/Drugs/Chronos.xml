@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <ThingDef ParentName="DrugPillBase">
+        <defName>Chronos</defName>
+        <label>chronos</label>
+        <description>A glowing blue solution of unknown make that enhances all functions of the nervous system and warps the user's perception of reality, appearing to grant them limited "precognition" and the ability to plan around their predictions. Following exposure to Chronos, the brain and nervous system become completely dependent on a constant supply of it to remain functional. Without very regular doses every 2 to 3 days, the neurons of the dependent body slow to a halt, emulating complete brain-death.\n\nOriginally developed as an extremely experimental combat-enhancement drug for glitterworld planetary defense forces, Chronos research and development was discontinued following a series of assassinations and disappearances of almost every single official involved with the program.</description>
+        <graphicData>
+            <texPath>Drugs</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <statBases>
+            <MarketValue>105</MarketValue>
+            <Mass>0.01</Mass>
+        </statBases>
+        <techLevel>Ultra</techLevel>
+        <ingestible>
+            <drugCategory>Medical</drugCategory>
+            <outcomeDoers>
+                <li Class="IngestionOutcomeDoer_GiveHediff">
+                <hediffDef>ChronosHigh</hediffDef>
+                <severity>1.00</severity>
+                <doToGeneratedPawnIfAddicted>true</doToGeneratedPawnIfAddicted>
+                </li>
+            </outcomeDoers>
+        </ingestible>
+        <comps>
+            <li Class="CompProperties_Drug">
+                <chemical>Chronos</chemical>
+                <addictiveness>1.00</addictiveness>
+                <needLevelOffset>1.0</needLevelOffset>
+                <listOrder>1011</listOrder>
+            </li>
+        </comps>
+        <tradeTags>
+            <li>ExoticMisc</li>
+        </tradeTags>
+    </ThingDef>
+
+    <HediffDef>
+        <defName>ChronosHigh</defName>
+        <hediffClass>Hediff_High</hediffClass>
+        <label>chronos</label>
+        <description>Chronos flowing through the bloodstream. It accelerates all nervous system functions and grants perceived precognition. Without regular dosage, the nervous system will slow to a halt.</description>
+        <defaultLabelColor>(0.37,0.8,0.89)</defaultLabelColor>
+        <scenarioCanAdd>true</scenarioCanAdd>
+        <maxSeverity>1.0</maxSeverity>
+        <isBad>false</isBad>
+        <stages>
+        <li>
+            <capMods>
+            <li>
+                <capacity>Consciousness</capacity>
+                <offset>0.20</offset>
+            </li>
+            <li>
+                <capacity>Moving</capacity>
+                <offset>0.1</offset>
+            </li>
+            <li>
+                <capacity>Sight</capacity>
+                <offset>0.3</offset>
+            </li>
+            <li>
+                <capacity>Breathing</capacity>
+                <offset>0.20</offset>
+            </li>
+            </capMods>
+        </li>
+        </stages>
+    </HediffDef>
+
+<!-- Chronos addiction -->
+
+    <ChemicalDef>
+        <defName>Chronos</defName>
+        <label>chronos</label>
+        <addictionHediff>ChronosAddiction</addictionHediff>
+        <canBinge>false</canBinge>
+    </ChemicalDef>
+
+    <NeedDef ParentName="DrugAddictionNeedBase">
+        <defName>Chemical_Chronos</defName>
+        <needClass>Need_Chemical</needClass>
+        <label>chronos</label>
+        <description>This person's body is enhanced by chronos in their bloodstream.\n\nWithout regular doses of chronos, their nervous system will slow to a halt until they emulate a brain-death.</description>
+        <listPriority>45</listPriority>
+        <fallPerDay>0.3</fallPerDay>
+    </NeedDef>
+
+    <HediffDef ParentName="AddictionBase">
+        <defName>ChronosAddiction</defName>
+        <label>chronos need</label>
+        <description>Chronos in the bloodstream. Chronos wears off over time; only frequent doses can reverse the process.\nWithout chronos, the brain and nervous system will slow to a halt, causing the user to emulate brain-death.</description>
+        <hediffClass>Hediff_Addiction</hediffClass>
+        <causesNeed>Chemical_Chronos</causesNeed>
+        <everCurableByItem>false</everCurableByItem>
+        <stages>
+        <li>
+        </li>
+        <li>
+            <label>unmet</label>
+            <painOffset>0.4</painOffset>
+            <lifeThreatening>true</lifeThreatening>
+            <deathMtbDays>5</deathMtbDays>
+            <capMods>
+            <li>
+                <capacity>Consciousness</capacity>
+                <setMax>0.1</setMax>
+            </li>
+            </capMods>
+            <mentalStateGivers>
+            <li>
+                <mentalState>Berserk</mentalState>
+                <mtbDays>0.2</mtbDays>
+            </li>
+            </mentalStateGivers>
+        </li>
+        </stages>
+    </HediffDef>
+
+</Defs>
